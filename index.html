@@ -14,16 +14,16 @@
         .menu {
             position: fixed;
             top: 0;
-            left: -250px; /* Initially hidden off-screen */
+            right: -250px; /* Initially hidden off-screen from the right */
             width: 200px;
             height: 100%;
             background-color: #2d2d2d;
-            transition: left 0.3s ease;
-            z-index: 1000; /* Ensures it stays on top */
+            transition: right 0.3s ease;
+            z-index: 1000; /* Ensure it's above other content */
         }
 
         .menu.open {
-            left: 0; /* Slide the menu in when open */
+            right: 0; /* Slide the menu in when open */
         }
 
         /* Darken the rest of the page */
@@ -35,6 +35,7 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.5);
             z-index: 500;
+            display: none;
         }
 
         /* Menu links styling */
@@ -117,13 +118,11 @@
     <div id="menu" class="menu">
         <a href="https://roblox.fandom.com/wiki/Da_Hood_Entertainment/Da_Hood" class="hover:bg-zinc-950 p-4 rounded">About</a>
         <a href="/tos" class="hover:bg-zinc-950 p-4 rounded">Terms of Service</a>
-        <a href="https://romarket.co/" class="hover:bg-zinc-950 p-4 rounded">RoMarket</a>
         <a href="/screenshare-tool" class="hover:bg-zinc-950 p-4 rounded">ScreenShare Tool</a>
-        <a href="https://45yr5h-git-main-snyes.vercel.app/" class="hover:bg-zinc-950 p-4 rounded">Link Validator</a>
     </div>
     
     <!-- Dark overlay -->
-    <div id="overlay" class="darken" style="display: none;"></div>
+    <div id="overlay" class="darken"></div>
 
     <script src="client.js"></script> <!-- External JavaScript -->
     <script>
