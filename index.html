@@ -5,12 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Da Customs</title>
     <style>
+        @font-face {
+            font-family: "Burbank Big Regular Black";
+            src: url("Burbank_Big_Regular_Black_1.ttf") format("truetype");
+        }
+
         body {
             margin: 0;
             background-color: black;
             color: white;
             font-family: "Burbank Big Regular Black", sans-serif;
             overflow: hidden;
+            position: relative;
         }
 
         .container {
@@ -20,6 +26,7 @@
             align-items: center;
             justify-content: center;
             flex-direction: column;
+            z-index: 1;
         }
 
         .button {
@@ -43,6 +50,7 @@
             top: 20px;
             text-align: center;
             font-size: 2rem;
+            z-index: 1;
         }
 
         .snowflake {
@@ -67,7 +75,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="title">Da Customs</div> 
+        <div class="title">Da Customs</div>
         <button class="button">Download</button>
     </div>
 
@@ -84,6 +92,7 @@
             snowflake.style.height = `${size}px`;
 
             snowflake.style.left = `${Math.random() * 100}vw`;
+            snowflake.style.top = `${Math.random() * 100}vh`;
             snowflake.style.animationDuration = `${Math.random() * 5 + 5}s`;
             snowflake.style.animationDelay = `${Math.random() * 5}s`;
 
