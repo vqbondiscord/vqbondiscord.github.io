@@ -61,6 +61,26 @@
         .menu-container {
             position: relative;
         }
+
+        /* Right-side image blur */
+        .image-container {
+            position: relative;
+            filter: blur(4px);
+        }
+
+        .image-container img {
+            filter: none; /* Prevent extra blur from stacking */
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, #18181b, transparent);
+            z-index: 1;
+        }
     </style>
 </head>
 <body>
@@ -108,10 +128,10 @@
                 </div>
             </div>
 
-            <!-- Right-side image restored -->
-            <div class="flex-1 relative hidden md:block">
+            <!-- Right-side image restored with blur -->
+            <div class="flex-1 relative hidden md:block image-container">
                 <img src="/right-side.jpg" alt="Random image" class="w-full h-full object-cover object-center">
-                <div class="absolute bg-gradient-to-r from-zinc-950 to-transparent inset-0"></div>
+                <div class="image-overlay"></div>
             </div>
         </div>
     </main>
