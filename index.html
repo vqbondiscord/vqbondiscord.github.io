@@ -7,6 +7,44 @@
         html {
             background: #09090b;
         }
+        /* Menu styling */
+        .menu {
+            position: fixed;
+            top: 0;
+            right: -250px; /* Initially hidden off-screen */
+            width: 250px;
+            height: 100%;
+            background-color: #1f1f1f;
+            transition: right 0.3s ease;
+            z-index: 1000; /* Ensures it stays on top */
+        }
+
+        .menu.open {
+            right: 0; /* Slide in when open */
+        }
+
+        /* Darken the rest of the page */
+        .darken {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 500;
+        }
+
+        .menu-content {
+            padding: 20px;
+            color: white;
+        }
+
+        .menu-button {
+            cursor: pointer;
+            position: relative;
+            z-index: 1500;
+        }
+
     </style>
 </head>
 <body>
@@ -29,7 +67,8 @@
                     <a href="/" class="text-2xl font-bold">
                         <img src="/dahood-removebg-preview.png" alt="Da Hood Logo" class="h-8">
                     </a>
-                    <button class="cursor-pointer relative">
+                    <!-- Menu button -->
+                    <button id="menuButton" class="menu-button relative">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                         </svg>
@@ -62,6 +101,40 @@
             </div>
         </div>
     </main>
+
+    <!-- Pop-up menu -->
+    <div id="menu" class="menu">
+        <div class="menu-content">
+            <h2 class="text-2xl font-bold">Menu</h2>
+            <ul>
+                <li><a href="https://discord.gg/dacustoms" target="_blank" class="text-blue-400">Chat on Discord</a></li>
+                <li><a href="https://www.roblox.com/games/132854438258206/UPDATED-Da-Customs" target="_blank" class="text-blue-400">Play the Game</a></li>
+                <li><a href="#" class="text-blue-400">Other Link</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Dark overlay -->
+    <div id="overlay" class="darken" style="display: none;"></div>
+
     <script src="client.js"></script> <!-- External JavaScript -->
+    <script>
+        // Get elements
+        const menuButton = document.getElementById('menuButton');
+        const menu = document.getElementById('menu');
+        const overlay = document.getElementById('overlay');
+
+        // Toggle menu visibility
+        menuButton.addEventListener('click', () => {
+            menu.classList.toggle('open'); // Slide the menu in/out
+            overlay.style.display = menu.classList.contains('open') ? 'block' : 'none'; // Show the dark overlay
+        });
+
+        // Close menu when clicking on overlay
+        overlay.addEventListener('click', () => {
+            menu.classList.remove('open');
+            overlay.style.display = 'none';
+        });
+    </script>
 </body>
 </html>
