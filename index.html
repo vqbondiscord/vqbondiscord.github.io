@@ -1,76 +1,56 @@
 <!DOCTYPE html>
-<title>ScreenShare | Da Hood</title>
-<link rel="stylesheet" href="/css/style.css">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScreenShare | Da Hood</title>
 
-<style>
-  .bg-grid[data-astro-cid-zwhiucgn] {
-    --g: rgba(66, 66, 66, .18);
-    background-size: 40px 40px;
-    background-image: linear-gradient(to right, var(--g) 1px, transparent 1px),
-                      linear-gradient(to bottom, var(--g) 1px, transparent 1px);
-  }
-</style>
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="client.js"></script>
+    <script src="Nav.js"></script>
 
-<div class="absolute inset-0 -top-20 blur-xl overflow-hidden -z-10" data-astro-cid-zwhiucgn>
-  <svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" class="w-full min-h-full scale-80 rotate-12"
-       xmlns:xlink="http://www.w3.org/1999/xlink" data-astro-cid-zwhiucgn>
-    <g transform="translate(423.6143563560753 295.71951719757396)" data-astro-cid-zwhiucgn>
-      <path d="M178.1 -164.3C221 -135.3 239 -67.6 228 -11C217.1 45.7 177.1 91.5 134.3 122.1C91.5 152.8 45.7 168.4 -12.5 180.9C-70.7 193.4 -141.4 202.8 -166.4 172.1C-191.4 141.4 -170.7 70.7 -163.3 7.4C-155.9 -55.9 -161.7 -111.7 -136.7 -140.7C-111.7 -169.7 -55.9 -171.9 5.9 -177.8C67.6 -183.6 135.3 -193.3 178.1 -164.3"
-            fill="#60a5fa21" data-astro-cid-zwhiucgn></path>
-    </g>
-  </svg>
-</div>
-
-<div class="absolute w-screen h-screen bg-zinc-950 text-white flex flex-col bg-grid -z-20" data-astro-cid-zwhiucgn></div>
-
-<main class="w-screen h-screen text-white flex flex-col" data-astro-cid-zwhiucgn>
-  <style>
-    astro-island, astro-slot, astro-static-slot {
-      display: contents;
-    }
-  </style>
-  <script>
-    (() => {
-      var e = async t => {
-        await(await t())()
-      };
-      (self.Astro || (self.Astro = {})).load = e;
-      window.dispatchEvent(new Event("astro:load"));
-    })();
-  </script>
-
-  <astro-island uid="1i4PGA" component-url="/js/Nav.js" component-export="default"
-                renderer-url="/js/client.js" props="{&quot;data-astro-cid-zwhiucgn&quot;:[0,true]}"
-                ssr="" client="load" opts="{&quot;name&quot;:&quot;Nav&quot;,&quot;value&quot;:true}" await-children="">
-    <link rel="icon" href="/fav.png" type="image/png">
-    <div>
-      <nav class="max-w-[1500px] p-4 mx-auto flex justify-between">
-        <a href="/" class="text-2xl font-bold" data-svelte-h="svelte-1awz79c">
-          <img src="/dahood-removebg-preview.png" alt="" class="h-8">
-        </a>
-        <button class="cursor-pointer relative">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-          </svg>
-        </button>
-      </nav>
+    <style>
+        .bg-grid[data-astro-cid-zwhiucgn] {
+            --g: rgba(66, 66, 66, .18);
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, var(--g) 1px, transparent 1px),
+                              linear-gradient(to bottom, var(--g) 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body>
+    <div class="absolute inset-0 -top-20 blur-xl overflow-hidden -z-10" data-astro-cid-zwhiucgn>
+        <svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" class="w-full min-h-full scale-80 rotate-12" xmlns:xlink="http://www.w3.org/1999/xlink" data-astro-cid-zwhiucgn>
+            <g transform="translate(423.6143563560753 295.71951719757396)" data-astro-cid-zwhiucgn>
+                <path d="M178.1 -164.3C221 -135.3 239 -67.6 228 -11C217.1 45.7 177.1 91.5 134.3 122.1C91.5 152.8 45.7 168.4 -12.5 180.9C-70.7 193.4 -141.4 202.8 -166.4 172.1C-191.4 141.4 -170.7 70.7 -163.3 7.4C-155.9 -55.9 -161.7 -111.7 -136.7 -140.7C-111.7 -169.7 -55.9 -171.9 5.9 -177.8C67.6 -183.6 135.3 -193.3 178.1 -164.3" fill="#60a5fa21" data-astro-cid-zwhiucgn></path>
+            </g>
+        </svg>
     </div>
-  </astro-island>
 
-  <div class="flex-1 flex justify-center items-center" data-astro-cid-zwhiucgn>
-    <div class="max-w-[1500px] mx-auto px-4 mt-8" data-astro-cid-zwhiucgn>
-      <span class="text-blue-400 text-lg font-bold" data-astro-cid-zwhiucgn>DAHOOD SUPPORT</span>
-      <div class="prose prose-invert mt-3" data-astro-cid-zwhiucgn>
-        <h1 data-astro-cid-zwhiucgn>Screen Share Tool</h1>
-        <p data-astro-cid-zwhiucgn>
-          Sometimes, our supporters may ask you to share your screen to help you with your issue. This tool
-          allows you to do that. Just click the button below to download the application.
-        </p>
-      </div>
-      <div class="mt-16" data-astro-cid-zwhiucgn>
-        <a href="https://files.catbox.moe/tsao48.zip" target="_blank" class="bg-blue-400 p-4 px-8 rounded-full text-zinc-950 font-bold"
-           data-astro-cid-zwhiucgn>Download Now</a>
-      </div>
-    </div>
-  </div>
-</main>
+    <div class="absolute w-screen h-screen bg-zinc-950 text-white flex flex-col bg-grid -z-20" data-astro-cid-zwhiucgn></div>
+
+    <main class="w-screen h-screen text-white flex flex-col" data-astro-cid-zwhiucgn>
+        <style>
+            astro-island, astro-slot, astro-static-slot {
+                display: contents;
+            }
+        </style>
+        <script>
+            (() => {
+                var e = async t => {
+                    await (await t())();
+                };
+                (self.Astro || (self.Astro = {})).load = e;
+                window.dispatchEvent(new Event("astro:load"));
+            })();
+        </script>
+        
+        <astro-island uid="1i4PGA" component-url="/Nav.js" component-export="default" renderer-url="/client.js" props="{&quot;data-astro-cid-zwhiucgn&quot;:[0,true]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Nav&quot;,&quot;value&quot;:true}" await-children="">
+            <link rel="icon" href="/fav.png" type="image/png">
+            <div>
+                <nav class="max-w-[1500px] p-4 mx-auto flex justify-between">
+                    <a href="/" class="text-2xl font-bold" data-svelte-h="svelte-1awz79c">
+                        <img src="dahood-removebg-preview.png" alt="" class="h-8">
+                   
