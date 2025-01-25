@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Da Customs</title>
+    <style>
+        @font-face {
+            font-family: "Burbank Big Regular Black";
+            src: url("Burbank_Big_Regular_Black_1.ttf") format("truetype");
+        }
+
+        body {
+            margin: 0;
+            background-color: black;
+            color: white;
+            font-family: "Burbank Big Regular Black", sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            z-index: 1;
+        }
+
+        .button {
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+        }
+
+        .title {
+            position: absolute;
+            top: 20px;
+            text-align: center;
+            font-size: 2rem;
+            z-index: 1;
+        }
+
+        .snowflake {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            from {
+                transform: translateY(-10vh);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(110vh);
+                opacity: 0.3;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Da Customs</div>
+        <button class="button">Download</button>
+    </div>
+
+    <script>
+        const snowflakeCount = 100;
+        const body = document.body;
+
+        for (let i = 0; i < snowflakeCount; i++) {
+            const snowflake = document.createElement("div");
+            snowflake.classList.add("snowflake");
+
+            const size = Math.random() * 5 + 2; // random size between 2px and 7px
+            snowflake.style.width = `${size}px`;
+            snowflake.style.height = `${size}px`;
+
+            snowflake.style.left = `${Math.random() * 100}vw`;
+            snowflake.style.top = `${Math.random() * 100}vh`;
+            snowflake.style.animationDuration = `${Math.random() * 5 + 5}s`;
+            snowflake.style.animationDelay = `${Math.random() * 5}s`;
+
+            body.appendChild(snowflake);
+        }
+    </script>
+</body>
+</html>
