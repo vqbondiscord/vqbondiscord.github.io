@@ -13,9 +13,9 @@
         /* Menu container */
         .menu {
             position: absolute;
-            top: 100%; /* Align with the bottom edge of the button */
-            left: 0; /* Align to the left of the button */
-            transform: translate(0, 8px); /* Add a slight gap below the button */
+            top: 100%; /* Positioned just below the button */
+            right: 0; /* Anchored to the left of the button */
+            transform: translate(-100%, 8px); /* Shift left and add slight vertical offset */
             width: 200px;
             background-color: #18181b;
             display: none;
@@ -60,26 +60,6 @@
         /* Anchor container for menu positioning */
         .menu-container {
             position: relative;
-        }
-
-        /* Right-side image blur */
-        .image-container {
-            position: relative;
-            filter: blur(4px);
-        }
-
-        .image-container img {
-            filter: none; /* Prevent extra blur from stacking */
-        }
-
-        .image-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to right, #18181b, transparent);
-            z-index: 1;
         }
     </style>
 </head>
@@ -126,12 +106,6 @@
                         <a href="https://www.roblox.com/games/132854438258206/UPDATED-Da-Customs" target="_blank" class="border border-blue-400 border-opacity-40 p-4 px-8 rounded-tr-full rounded-br-full font-bold">Play the Game</a>
                     </div>
                 </div>
-            </div>
-
-            <!-- Right-side image with blur effect -->
-            <div class="flex-1 relative hidden md:block image-container">
-                <img src="/right-side.jpg" alt="Random image" class="w-full h-full object-cover object-center">
-                <div class="image-overlay"></div>
             </div>
         </div>
     </main>
