@@ -14,14 +14,14 @@
         .menu {
             position: absolute;
             top: 100%; /* Positioned just below the button */
-            left: 0; /* Aligned to the left of the button */
+            right: 0; /* Anchored to the left of the button */
+            transform: translate(-100%, 8px); /* Shift left and add slight vertical offset */
             width: 200px;
             background-color: #18181b;
             display: none;
             z-index: 1000;
             border-radius: 0.5rem;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            transform: translateY(8px); /* Small downward offset for alignment */
         }
 
         /* Menu links */
@@ -81,7 +81,7 @@
 
                     <!-- The menu -->
                     <div id="menu" class="menu">
-                        <a href="https://roblox.fandom.com/wiki/Da_Hood_Entertainment/Da_Hood" class="hover:bg-zinc-950">About</a>
+                        <a href="https://www.roblox.com/communities/35344680/cursed-and-renx-are-cool-people-on-roblox-com#!/about" class="hover:bg-zinc-950">About</a>
                         <a href="/tos" class="hover:bg-zinc-950">Terms of Service</a>
                         <a href="/screenshare-tool" class="hover:bg-zinc-950">ScreenShare Tool</a>
                     </div>
