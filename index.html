@@ -13,14 +13,15 @@
         /* Menu container */
         .menu {
             position: absolute;
-            top: 0;
-            right: 0;
+            top: 100%; /* Positioned just below the button */
+            left: 0; /* Aligned to the left of the button */
             width: 200px;
             background-color: #18181b;
             display: none;
             z-index: 1000;
             border-radius: 0.5rem;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transform: translateY(8px); /* Small downward offset for alignment */
         }
 
         /* Menu links */
@@ -55,6 +56,11 @@
             position: relative;
             z-index: 1500;
         }
+
+        /* Anchor container for menu positioning */
+        .menu-container {
+            position: relative;
+        }
     </style>
 </head>
 <body>
@@ -64,12 +70,22 @@
                 <a href="/" class="text-2xl font-bold">
                     <img src="/dahood-removebg-preview.png" alt="Da Hood Logo" class="h-8">
                 </a>
-                <!-- Menu button -->
-                <button id="menuButton" class="menu-button">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                    </svg>
-                </button>
+                <!-- Menu container -->
+                <div class="menu-container">
+                    <!-- Menu button -->
+                    <button id="menuButton" class="menu-button">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+
+                    <!-- The menu -->
+                    <div id="menu" class="menu">
+                        <a href="https://roblox.fandom.com/wiki/Da_Hood_Entertainment/Da_Hood" class="hover:bg-zinc-950">About</a>
+                        <a href="/tos" class="hover:bg-zinc-950">Terms of Service</a>
+                        <a href="/screenshare-tool" class="hover:bg-zinc-950">ScreenShare Tool</a>
+                    </div>
+                </div>
             </nav>
         </div>
 
@@ -93,13 +109,6 @@
             </div>
         </div>
     </main>
-
-    <!-- The menu -->
-    <div id="menu" class="menu">
-        <a href="https://roblox.fandom.com/wiki/Da_Hood_Entertainment/Da_Hood" class="hover:bg-zinc-950">About</a>
-        <a href="/tos" class="hover:bg-zinc-950">Terms of Service</a>
-        <a href="/screenshare-tool" class="hover:bg-zinc-950">ScreenShare Tool</a>
-    </div>
 
     <!-- Dark overlay -->
     <div id="darkOverlay" class="dark-overlay"></div>
