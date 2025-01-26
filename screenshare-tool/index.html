@@ -57,6 +57,18 @@
             background-color: #575757;
         }
 
+        /* Dark overlay for dropdown */
+        .dark-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+
         /* Right-side image with blur effect */
         .image-container {
             position: absolute;
@@ -73,18 +85,6 @@
             object-fit: cover;
             filter: blur(8px);
             transform: scale(1.1);
-        }
-
-        /* Dark overlay for dropdown */
-        .dark-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 0;
         }
     </style>
 </head>
@@ -109,19 +109,21 @@
                     <img src="dahood-removebg-preview.png" alt="Da Customs Logo" class="h-8">
                 </a>
                 <div class="menu-container">
-                    <button class="menu-button" aria-label="Menu">
+                    <button id="menuButton" class="menu-button" aria-label="Menu">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                         </svg>
                     </button>
-                    <div class="dropdown-menu">
+
+                    <!-- Dropdown menu -->
+                    <div id="dropdownMenu" class="dropdown-menu">
                         <a href="https://www.roblox.com/communities/35344680/cursed-and-renx-are-cool-people-on-roblox-com#!/about" target="_blank">Community</a>
                         <a href="https://www.roblox.com/games/123456789/Da-Customs" target="_blank">Our Game</a>
                         <a href="https://www.roblox.com/groups/1234567/Da-Customs-Group#!/about" target="_blank">Our Group</a>
                     </div>
                 </div>
             </nav>
-        </div> 
+        </div>
 
         <!-- Main content -->
         <div class="flex-1 flex justify-center items-center">
@@ -141,3 +143,28 @@
                 </div>
             </div>
         </div>
+    </main>
+
+    <!-- Dark overlay -->
+    <div id="darkOverlay" class="dark-overlay"></div>
+
+    <script>
+        const menuButton = document.getElementById('menuButton');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+        const darkOverlay = document.getElementById('darkOverlay');
+
+        // Toggle menu
+        menuButton.addEventListener('click', () => {
+            const isVisible = dropdownMenu.style.display === 'block';
+            dropdownMenu.style.display = isVisible ? 'none' : 'block';
+            darkOverlay.style.display = isVisible ? 'none' : 'block';
+        });
+
+        // Hide menu when clicking outside
+        darkOverlay.addEventListener('click', () => {
+            dropdownMenu.style.display = 'none';
+            darkOverlay.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
