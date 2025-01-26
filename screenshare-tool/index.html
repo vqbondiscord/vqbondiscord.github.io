@@ -9,44 +9,121 @@
     <link rel="stylesheet" href="style.css">
 
     <!-- Add JavaScript files -->
-    <script src="client.js"></script>
-    <script src="Nav.js"></script>
+    <script src="client.js" defer></script>
+    <script src="Nav.js" defer></script>
 
     <style>
+        /* Background grid pattern */
         .bg-grid {
-            --g: rgba(66, 66, 66, .18);
+            --g: rgba(66, 66, 66, 0.18);
             background-size: 40px 40px;
             background-image: linear-gradient(to right, var(--g) 1px, transparent 1px),
                               linear-gradient(to bottom, var(--g) 1px, transparent 1px);
         }
+
+        /* Dropdown menu styles */
+        .menu-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .menu-button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #333;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-menu a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #575757;
+        }
+
+        /* Right-side image with blur effect */
+        .image-container {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 33.33%;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            filter: blur(8px);
+            transform: scale(1.1);
+        }
+
+        /* Dark overlay for dropdown */
+        .dark-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
     </style>
 </head>
 <body class="bg-zinc-950 text-white">
+    <!-- Background SVG -->
     <div class="absolute inset-0 -top-20 blur-xl overflow-hidden -z-10">
-        <svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" class="w-full min-h-full scale-80 rotate-12" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" class="w-full min-h-full scale-80 rotate-12">
             <g transform="translate(423.6143563560753 295.71951719757396)">
-			<path d="M178.1 -164.3C221 -135.3 239 -67.6 228 -11C217.1 45.7 177.1 91.5 134.3 122.1C91.5 152.8 45.7 168.4 -12.5 180.9C-70.7 193.4 -141.4 202.8 -166.4 172.1C-191.4 141.4 -170.7 70.7 -163.3 7.4C-155.9 -55.9 -161.7 -111.7 -136.7 -140.7C-111.7 -169.7 -55.9 -171.9 5.9 -177.8C67.6 -183.6 135.3 -193.3 178.1 -164.3" fill="rgba(255, 164, 233, 0.25)"></path>
-
+                <path d="M178.1 -164.3C221 -135.3 239 -67.6 228 -11C217.1 45.7 177.1 91.5 134.3 122.1C91.5 152.8 45.7 168.4 -12.5 180.9C-70.7 193.4 -141.4 202.8 -166.4 172.1C-191.4 141.4 -170.7 70.7 -163.3 7.4C-155.9 -55.9 -161.7 -111.7 -136.7 -140.7C-111.7 -169.7 -55.9 -171.9 5.9 -177.8C67.6 -183.6 135.3 -193.3 178.1 -164.3" fill="rgba(255, 164, 233, 0.25)"></path>
             </g>
         </svg>
     </div>
 
+    <!-- Background grid -->
     <div class="absolute w-screen h-screen bg-zinc-950 text-white flex flex-col bg-grid -z-20"></div>
 
     <main class="w-screen h-screen text-white flex flex-col">
+        <!-- Navigation -->
         <div>
-            <nav class="max-w-[1500px] p-4 mx-auto flex justify-between">
+            <nav class="max-w-[1500px] p-4 mx-auto flex justify-between items-center">
                 <a href="/" class="text-2xl font-bold">
-                    <img src="dahood-removebg-preview.png" alt="" class="h-8">
+                    <img src="dahood-removebg-preview.png" alt="Da Customs Logo" class="h-8">
                 </a>
-                <button class="cursor-pointer relative">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                    </svg>
-                </button>
+                <div class="menu-container">
+                    <button class="menu-button" aria-label="Menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="https://www.roblox.com/communities/35344680/cursed-and-renx-are-cool-people-on-roblox-com#!/about" target="_blank">Community</a>
+                        <a href="https://www.roblox.com/games/123456789/Da-Customs" target="_blank">Our Game</a>
+                        <a href="https://www.roblox.com/groups/1234567/Da-Customs-Group#!/about" target="_blank">Our Group</a>
+                    </div>
+                </div>
             </nav>
         </div>
 
+        <!-- Main content -->
         <div class="flex-1 flex justify-center items-center">
             <div class="max-w-[1500px] mx-auto px-4 mt-8">
                 <span class="text-blue-400 text-lg font-bold">DA CUSTOMS SUPPORT</span>
@@ -64,6 +141,8 @@
                 </div>
             </div>
         </div>
-    </main>
-</body>
-</html>
+
+        <!-- Right-side image with blur effect -->
+       
+::contentReference[oaicite:0]{index=0}
+ 
