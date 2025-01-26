@@ -21,70 +21,56 @@
                               linear-gradient(to bottom, var(--g) 1px, transparent 1px);
         }
 
-        /* Dropdown menu styles */
-        .menu-container {
-            position: relative;
-            display: inline-block;
-        }
-
-        .menu-button {
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-            padding: 8px;
-        }
-
-        .dropdown-menu {
-            display: none;
+        /* Menu container */
+        .menu {
             position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #333;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-
-        .dropdown-menu a {
-            color: white;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-menu a:hover {
-            background-color: #575757;
-        }
-
-        /* Dark overlay for dropdown */
-        .dark-overlay {
+            top: 100%; /* Positioned just below the button */
+            left: 0; /* Aligned to the left of the button */
+            width: 200px;
+            background-color: #18181b;
             display: none;
+            z-index: 1000;
+            border-radius: 0.5rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transform: translateY(8px); /* Small downward offset for alignment */
+        }
+
+        /* Menu links */
+        .menu a {
+            display: block;
+            padding: 1rem;
+            color: white;
+            text-decoration: none;
+            border-radius: 0.25rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu a:hover {
+            background-color: #27272a;
+        }
+
+        /* Darken overlay */
+        .dark-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
         }
 
-        /* Right-side image with blur effect */
-        .image-container {
-            position: absolute;
-            right: 0;
-            top: 0;
-            height: 100%;
-            width: 33.33%;
-            overflow: hidden;
+        /* Menu button */
+        .menu-button {
+            cursor: pointer;
+            position: relative;
+            z-index: 1500;
         }
 
-        .image-container img {
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
-            filter: blur(8px);
-            transform: scale(1.1);
+        /* Anchor container for menu positioning */
+        .menu-container {
+            position: relative;
         }
     </style>
 </head>
@@ -108,15 +94,17 @@
                 <a href="/" class="text-2xl font-bold">
                     <img src="dahood-removebg-preview.png" alt="Da Customs Logo" class="h-8">
                 </a>
+                <!-- Menu container -->
                 <div class="menu-container">
-                    <button id="menuButton" class="menu-button" aria-label="Menu">
+                    <!-- Menu button -->
+                    <button id="menuButton" class="menu-button">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                         </svg>
                     </button>
 
-                    <!-- Dropdown menu -->
-                    <div id="dropdownMenu" class="dropdown-menu">
+                    <!-- The menu -->
+                    <div id="menu" class="menu">
                         <a href="https://www.roblox.com/communities/35344680/cursed-and-renx-are-cool-people-on-roblox-com#!/about" target="_blank">Community</a>
                         <a href="https://www.roblox.com/games/123456789/Da-Customs" target="_blank">Our Game</a>
                         <a href="https://www.roblox.com/groups/1234567/Da-Customs-Group#!/about" target="_blank">Our Group</a>
@@ -150,19 +138,19 @@
 
     <script>
         const menuButton = document.getElementById('menuButton');
-        const dropdownMenu = document.getElementById('dropdownMenu');
+        const menu = document.getElementById('menu');
         const darkOverlay = document.getElementById('darkOverlay');
 
         // Toggle menu
         menuButton.addEventListener('click', () => {
-            const isVisible = dropdownMenu.style.display === 'block';
-            dropdownMenu.style.display = isVisible ? 'none' : 'block';
+            const isVisible = menu.style.display === 'block';
+            menu.style.display = isVisible ? 'none' : 'block';
             darkOverlay.style.display = isVisible ? 'none' : 'block';
         });
 
         // Hide menu when clicking outside
         darkOverlay.addEventListener('click', () => {
-            dropdownMenu.style.display = 'none';
+            menu.style.display = 'none';
             darkOverlay.style.display = 'none';
         });
     </script>
