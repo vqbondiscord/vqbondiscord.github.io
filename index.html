@@ -64,10 +64,11 @@
             align-items: center; /* Align logo and menu button vertically */
         }
 
-        /* Adjusting the logo size to 50px tall */
+        /* Adjusting the logo size to 50px tall, ensuring the image fits without being cut off */
         .logo {
             height: 50px; /* Fixed height of 50px */
             width: auto; /* Adjust width to maintain aspect ratio */
+            object-fit: contain; /* Ensures the logo fits without cropping */
         }
     </style>
 </head>
