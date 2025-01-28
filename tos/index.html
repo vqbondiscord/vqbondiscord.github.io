@@ -3,43 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TOS | Da Hood</title>
-    <link rel="stylesheet" href="/style.css"> <!-- Link to your external style.css -->
+    <title>Da Customs</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        /* General styles */
-        .logo {
-            height: 50px; /* Fixed height of 50px */
-            width: auto; /* Auto width to maintain aspect ratio */
+        html {
+            background: #09090b;
         }
 
-        /* Navigation bar */
-        .nav-bar {
-            max-width: 1500px;
-            padding: 1rem;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        /* Menu button */
-        .menu-btn {
-            cursor: pointer;
-            position: relative;
-        }
-
-        /* Menu container (shifted to left of the button) */
+        /* Menu container */
         .menu {
             position: absolute;
-            top: 50px; /* Aligns with the button vertically */
-            left: 0; /* Positions the menu to the left of the button */
-            width: 200px; /* Shrinking the width of the menu */
+            top: 100%; /* Positioned just below the button */
+            right: 0; /* Align the menu to the right of the button */
+            width: 200px;
             background-color: #18181b;
-            display: none; /* Hidden by default */
+            display: none;
+            z-index: 1000;
             border-radius: 0.5rem;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            transform: translateY(8px); /* Small downward offset */
+            transform: translateY(8px); /* Small downward offset for alignment */
         }
 
         /* Menu links */
@@ -52,12 +34,11 @@
             transition: background-color 0.3s ease;
         }
 
-        /* Menu link hover effect */
         .menu a:hover {
             background-color: #27272a;
         }
 
-        /* Dark overlay to close menu */
+        /* Darken overlay */
         .dark-overlay {
             position: fixed;
             top: 0;
@@ -66,91 +47,95 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.5);
             z-index: 999;
-            display: none; /* Hidden by default */
+            display: none;
         }
 
-        /* Layout background */
-        .bg-zinc-950 {
-            background-color: #1f1f1f;
+        /* Menu button */
+        .menu-button {
+            cursor: pointer;
+            position: relative;
+            z-index: 1500;
+        }
+
+        /* Anchor container for menu positioning */
+        .menu-container {
+            position: relative;
+            display: flex;
+            align-items: center; /* Align logo and menu button vertically */
+        }
+
+        /* Adjusting the logo size to 50px tall, ensuring the image fits without being cut off */
+        .logo {
+            height: 50px; /* Fixed height of 50px */
+            width: auto; /* Adjust width to maintain aspect ratio */
+            object-fit: contain; /* Ensures the logo fits without cropping */
         }
     </style>
 </head>
-<body class="bg-zinc-950 text-white flex flex-col">
-    <main class="w-screen min-h-screen bg-grid bg-cover">
-        <!-- Navigation bar -->
-        <nav class="nav-bar">
-            <a href="/" class="text-2xl font-bold">
-                <!-- Da Hood Logo -->
-                <img src="/dahood-removebg-preview.png" alt="Da Hood Logo" class="logo">
-            </a>
-            <!-- Menu button -->
-            <button class="menu-btn" id="menuButton">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
-        </nav>
+<body>
+    <main class="w-screen h-screen min-h-screen bg-zinc-950 text-white flex flex-col">
+        <div>
+            <nav class="max-w-[1500px] p-4 mx-auto flex justify-between items-center">
+                <a href="/" class="text-2xl font-bold">
+                    <!-- Applying the 'logo' class to scale the logo to 50px tall -->
+                    <img src="/dahood-removebg-preview.png" alt="Da Hood Logo" class="logo">
+                </a>
+                <!-- Menu container -->
+                <div class="menu-container">
+                    <!-- Menu button -->
+                    <button id="menuButton" class="menu-button">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
 
-        <!-- The menu -->
-        <div class="menu" id="menu">
-            <a href="https://roblox.fandom.com/wiki/Da_Hood_Entertainment/Da_Hood">About</a>
-            <a href="/tos">Terms of Service</a>
-            <a href="/screenshare-tool">ScreenShare Tool</a>
+                    <!-- The menu -->
+                    <div id="menu" class="menu">
+                        <a href="https://roblox.fandom.com/wiki/Da_Hood_Entertainment/Da_Hood" class="hover:bg-zinc-950">About</a>
+                        <a href="/tos" class="hover:bg-zinc-950">Terms of Service</a>
+                        <a href="/screenshare-tool" class="hover:bg-zinc-950">ScreenShare Tool</a>
+                    </div>
+                </div>
+            </nav>
         </div>
 
-        <!-- Dark overlay (click outside to close menu) -->
-        <div id="darkOverlay" class="dark-overlay"></div>
-
-        <!-- Terms of Service content -->
-        <div class="flex-1 max-w-[1500px] mx-auto px-4 mt-8 prose prose-invert">
-            <h1>Terms of Service</h1>
-            <h2>MEDIUM OFFENSES</h2>
-            <ul>
-                <li>Extremely Toxic Behavior</li>
-                <li>Threats and Act of Violence</li>
-                <li>Encouraging Self Harm</li>
-                <li>Discriminatory, Racism</li>
-            </ul>
-
-            <h2>HIGH OFFENSES ( IMMEDIATE PERMANENT BAN )</h2>
-            <ul>
-                <li>Doxxing</li>
-                <li>Impersonating Staff</li>
-                <li>Beaming</li>
-                <li>Black Markets</li>
-                <li>No Exploiting</li>
-                <li>No Loud Audios</li>
-                <li>No VC Abuse</li>
-            </ul>
-
-            <p>
-                REPEATED OFFENSES MAY BE MORE SINCERE THAN THE FIRST AND WILL ADD UP.
-                <br><br>
-                All Discord Bans may be appealed by Moderators.
-                <br>
-                Discord <a href="https://discord.com/terms">TOS</a> also applies to all messages.
-            </p>
+        <div class="flex-grow flex gap-4">
+            <div class="h-full flex-1 flex justify-center items-center">
+                <div class="mx-4 md:mx-24">
+                    <span class="font-bold text-blue-400">EXPLORE &amp; ENJOY</span>
+                    <h1 class="mt-4 text-6xl font-bold">
+                        Welcome to <span class="text-blue-400">Da Custom</span>'s
+                        <br>Official Website!
+                    </h1>
+                    <p class="text-2xl mt-8">
+                        Explore our captivating world, stay updated on news and events, and engage with the vibrant
+                        community!
+                    </p>
+                    <div class="mt-16 flex">
+                        <a href="https://discord.gg/dacustoms" target="_blank" class="bg-blue-400 p-4 px-8 rounded-tl-full rounded-bl-full text-zinc-950 font-bold">Chat on Discord</a>
+                        <a href="https://www.roblox.com/games/132854438258206/UPDATED-Da-Customs" target="_blank" class="border border-blue-400 border-opacity-40 p-4 px-8 rounded-tr-full rounded-br-full font-bold">Play the Game</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
-    <!-- Scripts -->
-    <script src="/Nav.js"></script>
-    <script src="/client.js"></script>
+    <!-- Dark overlay -->
+    <div id="darkOverlay" class="dark-overlay"></div>
 
     <script>
-        // Menu button functionality
         const menuButton = document.getElementById('menuButton');
         const menu = document.getElementById('menu');
         const darkOverlay = document.getElementById('darkOverlay');
 
-        // Toggle menu visibility
+        // Toggle menu
         menuButton.addEventListener('click', () => {
             const isVisible = menu.style.display === 'block';
             menu.style.display = isVisible ? 'none' : 'block';
             darkOverlay.style.display = isVisible ? 'none' : 'block';
         });
 
-        // Close menu when clicking outside
+        // Hide menu when clicking outside
         darkOverlay.addEventListener('click', () => {
             menu.style.display = 'none';
             darkOverlay.style.display = 'none';
