@@ -4,29 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TOS | Da Hood</title>
-    <link rel="stylesheet" href="/style.css"> <!-- Linking to style.css -->
+    <link rel="stylesheet" href="/style.css"> <!-- Link to style.css -->
     <style>
-        /* Style for the logo */
+        /* General styles */
         .logo {
             height: 50px; /* Fixed height of 50px */
-            width: auto; /* Adjust width automatically to maintain aspect ratio */
+            width: auto; /* Auto width to maintain aspect ratio */
         }
 
-        /* Styling for the menu container */
+        /* Menu container */
         .menu {
             position: absolute;
-            top: 100%; /* Positioned just below the button */
-            left: 0; /* Aligned to the left of the button */
-            width: 200px;
+            top: 60px; /* Positioned 60px below the nav bar */
+            left: 0;
+            width: 250px; /* Menu width */
             background-color: #18181b;
-            display: none;
-            z-index: 1000;
+            display: none; /* Hidden by default */
             border-radius: 0.5rem;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            transform: translateY(8px); /* Small downward offset for alignment */
+            z-index: 1000;
+            transform: translateY(8px); /* Add small downward offset */
         }
 
-        /* Styling for the menu links */
+        /* Menu links */
         .menu a {
             display: block;
             padding: 1rem;
@@ -36,11 +36,12 @@
             transition: background-color 0.3s ease;
         }
 
+        /* Menu link hover effect */
         .menu a:hover {
             background-color: #27272a;
         }
 
-        /* Darken overlay to close menu when clicked outside */
+        /* Overlay to close menu when clicked outside */
         .dark-overlay {
             position: fixed;
             top: 0;
@@ -49,10 +50,10 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.5);
             z-index: 999;
-            display: none;
+            display: none; /* Hidden by default */
         }
 
-        /* Style for the main layout */
+        /* Layout background */
         .bg-zinc-950 {
             background-color: #1f1f1f;
         }
@@ -63,7 +64,7 @@
         <!-- Navigation bar -->
         <nav class="max-w-[1500px] p-4 mx-auto flex justify-between">
             <a href="/" class="text-2xl font-bold">
-                <!-- Replace logo with the path and keep the size -->
+                <!-- Da Hood Logo -->
                 <img src="/dahood-removebg-preview.png" alt="Da Hood Logo" class="logo">
             </a>
             <!-- Menu button -->
@@ -74,14 +75,14 @@
             </button>
         </nav>
 
-        <!-- The menu (hidden by default) -->
+        <!-- The menu -->
         <div class="menu" id="menu">
-            <a href="https://roblox.fandom.com/wiki/Da_Hood_Entertainment/Da_Hood" class="hover:bg-zinc-950">About</a>
-            <a href="/tos" class="hover:bg-zinc-950">Terms of Service</a>
-            <a href="/screenshare-tool" class="hover:bg-zinc-950">ScreenShare Tool</a>
+            <a href="https://roblox.fandom.com/wiki/Da_Hood_Entertainment/Da_Hood">About</a>
+            <a href="/tos">Terms of Service</a>
+            <a href="/screenshare-tool">ScreenShare Tool</a>
         </div>
 
-        <!-- Dark overlay -->
+        <!-- Dark overlay (click outside to close menu) -->
         <div id="darkOverlay" class="dark-overlay"></div>
 
         <!-- Terms of Service content -->
@@ -116,23 +117,24 @@
         </div>
     </main>
 
-    <!-- Link to Nav.js and client.js -->
+    <!-- Scripts -->
     <script src="/Nav.js"></script>
     <script src="/client.js"></script>
 
     <script>
+        // Menu button functionality
         const menuButton = document.getElementById('menuButton');
         const menu = document.getElementById('menu');
         const darkOverlay = document.getElementById('darkOverlay');
 
-        // Toggle menu visibility when clicking the menu button
+        // Toggle menu visibility
         menuButton.addEventListener('click', () => {
             const isVisible = menu.style.display === 'block';
             menu.style.display = isVisible ? 'none' : 'block';
             darkOverlay.style.display = isVisible ? 'none' : 'block';
         });
 
-        // Hide the menu when clicking outside
+        // Close menu when clicking outside
         darkOverlay.addEventListener('click', () => {
             menu.style.display = 'none';
             darkOverlay.style.display = 'none';
