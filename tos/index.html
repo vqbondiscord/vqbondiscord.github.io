@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TOS | Da Hood</title>
-    <link rel="stylesheet" href="/style.css"> <!-- Link to style.css -->
+    <link rel="stylesheet" href="/style.css"> <!-- Link to your external style.css -->
     <style>
         /* General styles */
         .logo {
@@ -12,18 +12,34 @@
             width: auto; /* Auto width to maintain aspect ratio */
         }
 
-        /* Menu container */
+        /* Navigation bar */
+        .nav-bar {
+            max-width: 1500px;
+            padding: 1rem;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Menu button */
+        .menu-btn {
+            cursor: pointer;
+            position: relative;
+        }
+
+        /* Menu container (Adjust width and styles to match other menu sizes) */
         .menu {
             position: absolute;
-            top: 60px; /* Positioned 60px below the nav bar */
-            right: 0; /* Position menu to the right of the button */
-            width: 250px; /* Menu width */
+            top: 70px; /* Positioning the menu a little below the navbar */
+            right: 0;
+            width: 250px; /* Consistent with other menus */
             background-color: #18181b;
             display: none; /* Hidden by default */
             border-radius: 0.5rem;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             z-index: 1000;
-            transform: translateY(8px); /* Add small downward offset */
+            transform: translateY(8px); /* Small downward offset */
         }
 
         /* Menu links */
@@ -41,7 +57,7 @@
             background-color: #27272a;
         }
 
-        /* Overlay to close menu when clicked outside */
+        /* Dark overlay to close menu */
         .dark-overlay {
             position: fixed;
             top: 0;
@@ -62,13 +78,13 @@
 <body class="bg-zinc-950 text-white flex flex-col">
     <main class="w-screen min-h-screen bg-grid bg-cover">
         <!-- Navigation bar -->
-        <nav class="max-w-[1500px] p-4 mx-auto flex justify-between">
+        <nav class="nav-bar">
             <a href="/" class="text-2xl font-bold">
                 <!-- Da Hood Logo -->
                 <img src="/dahood-removebg-preview.png" alt="Da Hood Logo" class="logo">
             </a>
             <!-- Menu button -->
-            <button class="cursor-pointer relative" id="menuButton">
+            <button class="menu-btn" id="menuButton">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
