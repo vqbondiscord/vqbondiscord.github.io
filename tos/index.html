@@ -5,6 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TOS | Da Hood</title>
     <link rel="stylesheet" href="/style.css"> <!-- Linking to style.css -->
+    <style>
+        /* Style for the logo */
+        .logo {
+            height: 50px; /* Fixed height of 50px */
+            width: auto; /* Adjust width automatically to maintain aspect ratio */
+        }
+
+        .menu {
+            position: absolute;
+            top: 100%; /* Positioned just below the button */
+            left: 0; /* Aligned to the left of the button */
+            width: 200px;
+            background-color: #18181b;
+            display: none;
+            z-index: 1000;
+            border-radius: 0.5rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transform: translateY(8px); /* Small downward offset for alignment */
+        }
+
+        .menu a {
+            display: block;
+            padding: 1rem;
+            color: white;
+            text-decoration: none;
+            border-radius: 0.25rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu a:hover {
+            background-color: #27272a;
+        }
+
+        .bg-zinc-950 {
+            background-color: #1f1f1f;
+        }
+    </style>
 </head>
 <body class="bg-zinc-950 text-white flex flex-col">
     <main class="w-screen min-h-screen bg-grid bg-cover">
@@ -12,7 +49,7 @@
         <nav class="max-w-[1500px] p-4 mx-auto flex justify-between">
             <a href="/" class="text-2xl font-bold">
                 <!-- Replace logo with the path and keep the size -->
-                <img src="/dahood-removebg-preview.png" alt="Da Hood Logo" class="h-8">
+                <img src="/dahood-removebg-preview.png" alt="Da Hood Logo" class="logo">
             </a>
             <!-- Menu button -->
             <button class="cursor-pointer relative" id="menuButton">
