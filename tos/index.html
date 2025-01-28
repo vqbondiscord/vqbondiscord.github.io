@@ -12,6 +12,7 @@
             width: auto; /* Adjust width automatically to maintain aspect ratio */
         }
 
+        /* Styling for the menu container */
         .menu {
             position: absolute;
             top: 100%; /* Positioned just below the button */
@@ -25,6 +26,7 @@
             transform: translateY(8px); /* Small downward offset for alignment */
         }
 
+        /* Styling for the menu links */
         .menu a {
             display: block;
             padding: 1rem;
@@ -38,6 +40,19 @@
             background-color: #27272a;
         }
 
+        /* Darken overlay to close menu when clicked outside */
+        .dark-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+
+        /* Style for the main layout */
         .bg-zinc-950 {
             background-color: #1f1f1f;
         }
@@ -59,12 +74,15 @@
             </button>
         </nav>
 
-        <!-- Menu container -->
-        <div class="menu" id="menu" style="display: none;">
+        <!-- The menu (hidden by default) -->
+        <div class="menu" id="menu">
             <a href="https://roblox.fandom.com/wiki/Da_Hood_Entertainment/Da_Hood" class="hover:bg-zinc-950">About</a>
             <a href="/tos" class="hover:bg-zinc-950">Terms of Service</a>
             <a href="/screenshare-tool" class="hover:bg-zinc-950">ScreenShare Tool</a>
         </div>
+
+        <!-- Dark overlay -->
+        <div id="darkOverlay" class="dark-overlay"></div>
 
         <!-- Terms of Service content -->
         <div class="flex-1 max-w-[1500px] mx-auto px-4 mt-8 prose prose-invert">
@@ -98,16 +116,26 @@
         </div>
     </main>
 
-    <script src="/Nav.js"></script> <!-- Link to Nav.js -->
-    <script src="/client.js"></script> <!-- Link to client.js -->
+    <!-- Link to Nav.js and client.js -->
+    <script src="/Nav.js"></script>
+    <script src="/client.js"></script>
 
     <script>
         const menuButton = document.getElementById('menuButton');
         const menu = document.getElementById('menu');
+        const darkOverlay = document.getElementById('darkOverlay');
 
-        // Toggle menu visibility
+        // Toggle menu visibility when clicking the menu button
         menuButton.addEventListener('click', () => {
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+            const isVisible = menu.style.display === 'block';
+            menu.style.display = isVisible ? 'none' : 'block';
+            darkOverlay.style.display = isVisible ? 'none' : 'block';
+        });
+
+        // Hide the menu when clicking outside
+        darkOverlay.addEventListener('click', () => {
+            menu.style.display = 'none';
+            darkOverlay.style.display = 'none';
         });
     </script>
 </body>
