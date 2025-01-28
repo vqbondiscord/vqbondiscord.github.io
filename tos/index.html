@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<title>TOS | Da Hood</title>
+<link rel="stylesheet" href="/_astro/index.xA4UsTcZ.css">
+<style>
+  .bg-grid[data-astro-cid-z2ncg5s5] {
+    --g: rgba(66, 66, 66, .18);
+    background-size: 40px 40px;
+    background-image: linear-gradient(to right, var(--g) 1px, transparent 1px), linear-gradient(to bottom, var(--g) 1px, transparent 1px);
+  }
+</style>
+
+<main class="w-screen min-h-screen bg-zinc-950 text-white flex flex-col bg-grid" data-astro-cid-z2ncg5s5>
+  <style>astro-island, astro-slot, astro-static-slot { display: contents; }</style>
+  
+  <script>
+    (() => {
+      var e = async t => { await(await t())(); };
+      (self.Astro || (self.Astro = {})).load = e;
+      window.dispatchEvent(new Event("astro:load"));
+    })();
+  </script>
+
+  <astro-island uid="ZMaLkV" component-url="/_astro/Nav.Bdxpcz8U.js" component-export="default" renderer-url="/_astro/client.Cx1FBVJX.js" props="{&quot;data-astro-cid-z2ncg5s5&quot;:[0,true]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Nav&quot;,&quot;value&quot;:true}" await-children="">
+    <link rel="icon" href="/fav.png" type="image/png">
+    <div>
+      <nav class="max-w-[1500px] p-4 mx-auto flex justify-between">
+        <a href="/" class="text-2xl font-bold" data-svelte-h="svelte-1awz79c">
+          <!-- Replace logo with path and keep the size -->
+          <img src="/dahood-removebg-preview.png" alt="Da Hood Logo" class="h-8">
+        </a>
+        <!-- Menu button -->
+        <button class="cursor-pointer relative" id="menuButton">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </nav>
+    </div>
+
+    <!-- Menu container -->
+    <div class="menu" id="menu" style="display: none;">
+      <a href="https://roblox.fandom.com/wiki/Da_Hood_Entertainment/Da_Hood" class="hover:bg-zinc-950">About</a>
+      <a href="/tos" class="hover:bg-zinc-950">Terms of Service</a>
+      <a href="/screenshare-tool" class="hover:bg-zinc-950">ScreenShare Tool</a>
+    </div>
+  </astro-island>
+
+  <div class="flex-1" data-astro-cid-z2ncg5s5>
+    <div class="max-w-[1500px] mx-auto px-4 mt-8 prose prose-invert" data-astro-cid-z2ncg5s5>
+      <h1>Terms of Service</h1>
+      <h2>MEDIUM OFFENSES</h2>
+      <ul>
+        <li>Extremely Toxic Behavior</li>
+        <li>Threats and Act of Violence</li>
+        <li>Encouraging Self Harm</li>
+        <li>Discriminatory, Racism</li>
+      </ul>
+
+      <h2>HIGH OFFENSES ( IMMEDIATE PERMANENT BAN )</h2>
+      <ul>
+        <li>Doxxing</li>
+        <li>Impersonating Staff</li>
+        <li>Beaming</li>
+        <li>Black Markets</li>
+        <li>No Exploiting</li>
+        <li>No Loud Audios</li>
+        <li>No VC Abuse</li>
+      </ul>
+
+      <p>
+        REPEATED OFFENSES MAY BE MORE SINCERE THAN THE FIRST AND WILL ADD UP.
+        <br><br>
+        All Discord Bans may be appealed by Moderators
+        <br>
+        Discord <a href="https://discord.com/terms">TOS</a> also applies to all messages.
+      </p>
+    </div>
+  </div>
+</main>
+
+<script>
+  const menuButton = document.getElementById('menuButton');
+  const menu = document.getElementById('menu');
+
+  // Toggle menu visibility
+  menuButton.addEventListener('click', () => {
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+  });
+</script>
